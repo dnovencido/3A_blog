@@ -1,7 +1,7 @@
 <?php
     include "session.php";
 
-    if(!array_key_exists("id", $_SESSION)) {
+    if(!isset($_SESSION['id'])) {
         header("Location: index.php");
     }
 ?>

@@ -49,13 +49,7 @@
                         <div id="register-form">
                             <h1>Register an account.</h1>
                             <?php if(!empty($errors)) {  ?>
-                               <div class="alert alert-danger">
-                                    <ul>
-                                        <?php foreach($errors as $row) { ?>
-                                            <li><?= $row ?></li>
-                                        <?php } ?>
-                                    </ul>
-                               </div>
+                                <?php include "layouts/_error-messages.php" ?>
                             <?php } ?>
                             <form method="post">
                                 <div class="input-control">
