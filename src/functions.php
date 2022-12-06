@@ -69,4 +69,17 @@
         return $user;
     }
 
-?>
+    function get_categories() {
+        global $connection;
+        $categories = [];
+
+        $query = "SELECT * FROM `categories`";
+        $result = mysqli_query($connection, $query);
+
+        if(mysqli_num_rows($result)) {
+            $categories = $result;
+        }
+
+        return $categories;
+    }
+ ?>
