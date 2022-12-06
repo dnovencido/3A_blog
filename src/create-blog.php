@@ -1,7 +1,9 @@
 <?php
     include "functions.php";
-    
+    include "session.php";
+
     $errors = [];
+    
     $categories = get_categories();
     
     if($_POST['submit']) {
@@ -24,6 +26,14 @@
 
         if(!$_POST['category_id']) {
             $errors[] = "Category is required.";
+        }
+
+        if(empty($errors)) {
+            if(save_blog($_POST['title'], $_POST['body'], $_POST['category_id'], $_SESSION['id'])) {
+                header("Location: my-blogs.php");
+            } else {
+                $errors[] = "Could not create blog.";
+            }
         }
 
     }

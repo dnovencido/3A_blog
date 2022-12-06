@@ -1,3 +1,9 @@
+<?php
+    include "functions.php";
+    include "session.php";
+
+    $my_blogs = get_my_blogs($_SESSION['id']);
+?>
 <?php include "layouts/_header.php" ?>
             <header>
                 <?php include "layouts/_navigation.php" ; ?>
