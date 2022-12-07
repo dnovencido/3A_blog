@@ -3,6 +3,7 @@
     include "session.php";
 
     $my_blogs = get_my_blogs($_SESSION['id']);
+
 ?>
 <?php include "layouts/_header.php" ?>
             <header>
@@ -19,6 +20,24 @@
                         </div>
                     </div>
                     <div id="my-blogs-list">
+                        <?php if(!empty($my_blogs)) { ?>
+                            <?php foreach($my_blogs as $row) { ?>
+                                <div class="my-blogs-item">
+                                    <div class="blog-title">
+                                        <a href="<?= 'view-blog.php?id=' . $row['blog_id'] ?>">
+                                            <h3><?= display_blog_preview($row['title'], 50) . '...' ?></h3>
+                                        </a>
+                                        <p><?= date("F m, Y @ g:H a", strtotime($row['date_created'])); ?></p>
+                                        <span class="category"><?= $row['category_name'] ?></span>
+                                    </div>
+                                    <div class="blog-body">
+                                        <p>
+                                            <?= display_blog_preview($row['body'], 255) . '...' ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        <?php } ?>
                     </div>
                 </div>
             </section>
