@@ -200,6 +200,7 @@ ul#menu a {
 
 #my-blogs-list div.blog-title p {
     font-size: 0.9rem;
+    color: #78909C;
 }
 
 #blog-view {
@@ -260,15 +261,26 @@ ul#menu a {
 }
 
 #blog-feed-list > div.blog-feed-item {
-    flex: 0 1 270px;
+    flex: 0 1 268px;
     padding: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-#blog-feed #blog-feed-list div.blog-feed-header a {
-    margin-bottom: 10px;
+#blog-feed #blog-feed-list div.blog-feed-header h3 {
+    margin-bottom: 15px;
 }
 
 #blog-feed #blog-feed-list div.blog-feed-header p {
-    margin: 0;
+    margin: 5px 0px 0px 0px;
+    font-size: 0.9rem;
+    color: #78909C;
+}
+
+#blog-feed #blog-feed-list div.blog-feed-body {
+    border-top: 1px solid #BFBFBF;
+    margin-top: 10px;
+}
+
+#blog-feed #blog-feed-list div.blog-feed-header p.blog-feed-author {
+  font-style: italic;
 }
