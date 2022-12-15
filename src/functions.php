@@ -203,4 +203,25 @@
         return ($current_user == $blog_user_id) ? true : false;
     }
 
+    function delete_blog($current_user, $id) {
+        global $connection;
+        $flag = false;
+
+        $query = "SELECT * FROM `blogs` WHERE `blogs`.`id` = '".escape_string($id)."'";
+        $result = mysqli_query($connection, $query);
+
+     
+        if(mysqli_num_rows($result) > 0) {
+            $blog = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+            $query = "DELETE FROM `blogs` WHERE `blogs`.`id` = '".$blog['id']."'";
+
+            if(mysqli_query($connection, $query) && is_owner($current_user, $blog['user_id'])) {
+                $flag = true;
+            }
+        }
+
+        return $flag;
+    }
+    
  ?>
